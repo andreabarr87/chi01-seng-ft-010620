@@ -1,0 +1,15 @@
+<h1 class="large-title">Malontines</h1>
+<%= link_to "Make a new Malontine!", new_malontine_path %>
+<br><br>
+
+<%= paginate @malontines %>
+
+<div class="malontines-container">
+  <ul class="malontines-list">
+    <% @malontines.each do |malontine| %>
+      <%= render "list_item", malontine: malontine %>
+    <% end %>
+  </ul>
+</div>
+
+<%= paginate @malontines %>

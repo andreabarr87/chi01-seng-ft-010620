@@ -1,0 +1,14 @@
+<h1>Let's work on forms!</h1>
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <p style="color:red;"><%= error %></p>
+  <% end %>
+<% end %>
+
+<%= form_for @cow do |f| %>
+  <p>Name: <%= f.text_field :name %></p>
+  <p>Spots: <%= f.number_field :spots %></p>
+  <p>Farmer: <%= f.collection_select(:farmer_id, @farmers, :id, :name) %></p>
+  <%= f.submit "MOOOOVE FORWARD" %>
+<% end %>
